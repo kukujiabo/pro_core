@@ -52,7 +52,7 @@ class AdminSv extends BaseService {
 
       $role = $roleSv->findOne($admin['role']);
 
-      $sessionData = $this->createSession($admin['id'], 'admin_auth');
+      $sessionData = $this->createSession($admin['id'], 'pro_admin_auth');
 
       $sessionData['role_auth'] = $role['auth'];
 
@@ -112,6 +112,8 @@ class AdminSv extends BaseService {
 
       'password' => md5($params['password']),
 
+      'pro_code' => $params['pro_code'],
+
       'role' => $params['role'],
 
       'state' => 1,
@@ -121,6 +123,22 @@ class AdminSv extends BaseService {
     ];
 
     return $this->add($newData);
+
+  }
+
+  public function updatePassword($params) {
+
+    $admin = $this->findOne($params['id']);
+
+    if (md5($params['old_password']) == $admin['password']) {
+
+      return $this->update($params['id'], [ 'password' => md5($params['new_password']) ]);
+
+    } else {
+
+      return 0;
+
+    }
 
   }
 
@@ -152,6 +170,12 @@ class AdminSv extends BaseService {
     }
 
     return $this->update($id, $updateData);
+
+  }
+
+  public function removeAccount($params) {
+
+    return $this->remove($params['id']);
 
   }
 

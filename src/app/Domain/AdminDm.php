@@ -55,7 +55,9 @@ class AdminDm {
 
         'roles' => ['admin'],
 
-        'auth' => $role['auth']
+        'auth' => $role['auth'],
+
+        'pro_code' => $info['pro_code']
       
       ];
 
@@ -86,6 +88,18 @@ class AdminDm {
   public function editAcct($params) {
 
     return $this->_asv->editAcct($params);
+
+  }
+
+  public function updatePassword($params) {
+
+    return $this->_asv->updatePassword($params);
+
+  }
+
+  public function removeAccount($params) {
+
+    return $this->_asv->removeAccount($params);
 
   }
 

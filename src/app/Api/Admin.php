@@ -28,6 +28,8 @@ class Admin extends BaseApi {
 
         'admin_name' => 'admin_name|string|true||管理员姓名',
 
+        'pro_code' => 'pro_code|string|false||供应商编码',
+
         'role' => 'role|int|false||角色'
 
       ],
@@ -68,7 +70,25 @@ class Admin extends BaseApi {
 
         'admin_name' => 'admin_name|string|false||管理员姓名',
 
+        'pro_code' => 'pro_code|string|false||供应商编码',
+
         'role' => 'role|int|false||角色'
+
+      ],
+
+      'updatePassword' => [
+
+        'id' => 'id|int|true||账号id',
+
+        'password' => 'password|string|true||账号新密码',
+
+        'old_password' => 'old_password|string|true||旧密码'
+
+      ],
+
+      'removeAccount' => [
+
+        'id' => 'id|int|true||账号id'
 
       ]
     
@@ -145,6 +165,30 @@ class Admin extends BaseApi {
   public function editAcct() {
 
     return $this->dm->editAcct($this->retriveRuleParams(__FUNCTION__));
+
+  }
+
+  /**
+   * 更新密码
+   * @desc 更新密码
+   *
+   * @return int num
+   */
+  public function updatePassword() {
+
+    return $this->dm->updatePassword($this->retriveRuleParams(__FUNCTION__));
+
+  }
+
+  /**
+   * 删除账号
+   * @desc 删除账号
+   *
+   * @return int num
+   */
+  public function removeAccount() {
+
+    return $this->dm->removeAccount($this->retriveRuleParams(__FUNCTION__));
 
   }
 

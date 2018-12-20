@@ -8,6 +8,7 @@ namespace App\Model;
  */
 class Admin extends BaseModel {
 
+  protected $_table = 'pro_admin';
 
   protected $_queryOptionRule = [
   
