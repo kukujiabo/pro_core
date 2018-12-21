@@ -83,6 +83,8 @@ class SalesOrderSv {
 
   public function  updateOrder($data) {
 
+    $query = [];
+
     $query['cPOID'] = $data['p_oid'];
 
     $query['ExecutionSteps'] = $data['execution_step'];

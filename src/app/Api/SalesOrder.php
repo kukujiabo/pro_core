@@ -34,7 +34,7 @@ class SalesOrder extends BaseApi {
       'updateOrder' => [
 
         'p_oid' => 'p_oid|string|true||采购订单号',
-        'execution_step' => 'execution_step|int|true||订单'
+        'execution_step' => 'execution_step|string|true||订单'
 
       ],
     
